@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="animeshrine.kortas.com.animeshrine.RandomAnime"
+    tools:showIn="@layout/activity_random_anime"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <com.uncopt.android.widget.text.justify.JustifiedTextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff666666"
+            android:textSize="16dp"
+
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:text="qsdq"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="20dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="277dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Genres: "
+                    android:textStyle="bold"
+                    android:id="@+id/textView3"
+                    android:textSize="18dp"
+
+                    android:layout_marginStart="38dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignStart="@+id/genreslv" />
+
+                <ListView
+                    android:layout_width="151dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/genreslv"
+                    android:layout_below="@+id/textView3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/loadSeasonAnimebtn"
+
+                    android:paddingLeft="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/linearLayout"
+                android:layout_alignParentTop="true">
+
+
+
+                <TextView
+                    android:id="@+id/rank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2567"
+                    android:layout_marginLeft="36dp"
+                    android:layout_below="@+id/textView4"
+                    android:layout_alignEnd="@+id/textView4"
+                    android:textSize="18dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <info.hoang8f.widget.FButton
+                    android:id="@+id/loadSeasonAnimebtn"
+                    android:layout_width="183dp"
+                    android:layout_height="68dp"
+
+                    android:drawablePadding="0dp"
+                    android:minHeight="80dp"
+                    android:minWidth="250dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="-5dp"
+                    android:text="Full review "
+                    android:textColor="@android:color/white"
+                    fbutton:cornerRadius="15dp"
+                    fbutton:shadowEnabled="true"
+                    fbutton:shadowHeight="6dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center_horizontal" />
+                <info.hoang8f.widget.FButton
+                    app:buttonColor="@color/fbutton_color_alizarin"
+                    android:id="@+id/randomize"
+                    android:layout_width="132dp"
+                    android:layout_height="41dp"
+                    android:layout_marginTop="20dp"
+                    android:drawablePadding="0dp"
+                    android:minHeight="80dp"
+                    android:minWidth="250dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="-5dp"
+                    android:text="Randomize"
+                    android:textColor="@android:color/white"
+                    fbutton:cornerRadius="15dp"
+                    fbutton:shadowEnabled="true"
+                    fbutton:shadowHeight="6dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
