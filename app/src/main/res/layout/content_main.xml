@@ -32,24 +32,24 @@
             android:layout_alignParentStart="true">
 
 
-            <TextView
+        <!--  <TextView
                   android:text="@string/main_menu_string"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:id="@+id/textView6"
+                  android:id="@+id/tv1Main"
                   android:textSize="30dp"
-                  />
+                  />-->
 
-            <!--   <com.uncopt.android.widget.text.justify.JustifiedTextView
-
+              <com.uncopt.android.widget.text.justify.JustifiedTextView
+                    android:id="@+id/tv1"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:textColor="#ff666666"
-                   android:textSize="16dp"
+
                    android:focusable="true"
                    android:focusableInTouchMode="false"
-                   android:text="@string/main_menu_string"
-                    />-->
+
+                    />
 
 
             <Button
@@ -92,22 +92,33 @@
 
 
 
-            <!--   <com.uncopt.android.widget.text.justify.JustifiedTextView
 
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textColor="#ff666666"
 
-                   android:focusable="true"
-                   android:focusableInTouchMode="false"
-                   android:text="@string/main_menu_lore" />-->
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_ad_unit_id">
+            </com.google.android.gms.ads.AdView>
+             <com.uncopt.android.widget.text.justify.JustifiedTextView
+                 android:id="@+id/tv2"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="#ff666666"
 
-                 <TextView
+                              android:focusable="true"
+                              android:focusableInTouchMode="false"
+
+                              />
+          <!--  <TextView
                      android:text="@string/main_menu_loadmore"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
-                     android:id="@+id/textView5"
-                     android:textSize="30dp" />
+                     android:id="@+id/tv2Main"
+                     android:textSize="30dp" />-->
 
             <Button
                 android:layout_width="148dp"

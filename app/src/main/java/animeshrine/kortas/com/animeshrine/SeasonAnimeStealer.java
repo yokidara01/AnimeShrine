@@ -116,8 +116,8 @@ public class SeasonAnimeStealer {
         anime.desc=(newsHeadlines.text());
         //System.out.println("animesdesc = [" + anime.getDesc() + "]");
 
-        newsHeadlines = doc.select("div[text-align: center;]");
-        anime.img=(newsHeadlines.text());
+        newsHeadlines = doc.select("div[style=\"text-align: center;\"]").select("img");
+        anime.img=(newsHeadlines.attr("src"));
 
         newsHeadlines=doc.select("span[class=numbers ranked]").select("strong");
 

@@ -10,4 +10,5 @@ public class Global {
     public static Anime acAnime ;
     public static  List<Anime> AllAnime ;
     public static  List<AnimeS> seasonalAnime;
+    public static boolean firstUse = true ;
 }

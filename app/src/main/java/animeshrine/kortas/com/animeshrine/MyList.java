@@ -1,13 +1,16 @@
 package animeshrine.kortas.com.animeshrine;
 
+import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +26,7 @@ import java.util.List;
 
 
 public class MyList extends AppCompatActivity {
-
+    Button b1,b2,b3 ;
 
     private SwipeMenuListView mListView;
     private String[] arrData = {
@@ -43,6 +46,7 @@ public class MyList extends AppCompatActivity {
     private String[] myListUserStatu;
     List<Anime> animelist;
     private int listcount;
+     MyDBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,7 +95,7 @@ public class MyList extends AppCompatActivity {
                 // create "item1"
                 SwipeMenuItem item1 = new SwipeMenuItem(MyList.this);
                 // set item background
-                item1.setBackground(new ColorDrawable(Color.parseColor("#FF9933")));
+                item1.setBackground(new ColorDrawable(Color.parseColor("#303F9F")));
                 // set item width
                 item1.setWidth(100);
 
@@ -112,8 +116,9 @@ public class MyList extends AppCompatActivity {
                 item2.setBackground(new ColorDrawable(Color.WHITE));
                 // set item width
                 item2.setWidth(100);
+
                 // set a icon
-                item2.setIcon(R.drawable.ic_menu_share);
+                item2.setIcon(R.drawable.delete);
                 // add to menu
                 menu.addMenuItem(item2);
 
@@ -144,6 +149,52 @@ public class MyList extends AppCompatActivity {
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
                 switch (index) {
                     case 0:
+
+// custom dialog
+                        final Dialog dialog = new Dialog(MyList.this);
+                        dialog.setContentView(R.layout.dialog_for_add_to_list);
+                        Anime a = animelist.get(position);
+                        dialog.show();
+                        dialog.setTitle("Change Status of "+a.getName());
+
+
+                        b1=(Button) dialog.findViewById(R.id.button1) ;
+                        b2=(Button) dialog.findViewById(R.id.button2) ;
+                        b3=(Button) dialog.findViewById(R.id.button3) ;
+
+                        dbHandler = new MyDBHandler(MyList.this, null, null, 1);
+
+                        b1.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                             /*   a.setUserStatus("Watching");
+                                dbHandler.addAnime(a);*/
+                                dialog.dismiss();
+
+                            }
+                        });
+
+                        b2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                               /* a.setUserStatus("To Watch");
+                                dbHandler.addAnime(a);*/
+                                dialog.dismiss();
+
+                            }
+                        });
+
+                        b3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                              /*  a.setUserStatus("Watched");
+                                dbHandler.addAnime(a);*/
+                                dialog.dismiss();
+
+                            }
+                        });
+
+
                         Toast.makeText(MyList.this, "Item 1 pressed", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
@@ -219,7 +270,24 @@ public class MyList extends AppCompatActivity {
             }
             ViewHolder holder = (ViewHolder) convertView.getTag();
             Anime anime = getItem(position);
-            holder.iv_icon.setImageDrawable(getResources().getDrawable(R.drawable.nrt04calendarcover));
+
+           if(anime.getUserStatus().equals("Watching"))
+           {
+               holder.iv_icon.setImageDrawable(getResources().getDrawable(R.drawable.watching));
+
+           }else if (anime.getUserStatus().equals("To Watch"))
+           {
+               holder.iv_icon.setImageDrawable(getResources().getDrawable(R.drawable.to_watch));
+
+           }else
+           {
+               holder.iv_icon.setImageDrawable(getResources().getDrawable(R.drawable.finshied));
+
+           }
+
+
+//            holder.iv_icon.setImageDrawable(getResources().getDrawable(R.drawable.nrt04calendarcover));
+
             holder.tv_name.setText(anime.getName());
             holder.iv_icon.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -268,8 +336,8 @@ public class MyList extends AppCompatActivity {
 
 
 
-
-   /* @Override
+/*
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main_swipe_lv, menu);
         return true;
@@ -289,5 +357,6 @@ public class MyList extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
+    */
 }

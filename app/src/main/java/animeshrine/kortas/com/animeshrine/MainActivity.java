@@ -19,8 +19,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+import com.google.android.gms.ads.MobileAds;
+import com.uncopt.android.widget.text.justify.JustifiedTextView;
 
 
 import java.util.List;
@@ -123,17 +126,21 @@ public class MainActivity extends AppCompatActivity
 
         /*********************************************************/
 
-      /*  MobileAds.initialize(getApplicationContext(),"ca-app-pub-8576924018474704/4754853076");
+  /*      MobileAds.initialize(getApplicationContext(),"ca-app-pub-8576924018474704~2487227472");
 
         AdRequest adRequest = new AdRequest.Builder().build();
 
         AdView adView = (AdView) findViewById(R.id.adView);
-        adView.loadAd(adRequest);*/
-
+        adView.loadAd(adRequest);
+*/
 
       //  UserInformation userInformation = new UserInformation(MainActivity.this);
-
-
+        JustifiedTextView tv1,tv2 ;
+        tv1=(JustifiedTextView)  findViewById(R.id.tv1);
+        tv2=(JustifiedTextView)  findViewById(R.id.tv2);
+        tv1.setText(R.string.main_menu_string);
+        tv2.setText(R.string.main_menu_loadmore);
+        tv1.setTextSize(25f);tv2.setTextSize(25f);
 
     }
 
